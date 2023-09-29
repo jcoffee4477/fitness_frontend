@@ -1,7 +1,9 @@
 import { ExercisesIndex } from "./ExercisesIndex"
 import  axios from "axios"
 import { useState, useEffect } from "react"
-
+import { Signup } from "./Signup"
+import { Login } from "./Login"
+import { LogoutLink} from "./LogoutLink"
 
 
 export function Content() {
@@ -21,6 +23,9 @@ useEffect(handleExercisesIndex, [])
   return (
     <div>
       <h1>Welcome to React!</h1>
+      <Signup />
+      <Login />
+      <LogoutLink />
       <ExercisesIndex exercises={exercises} />
     </div>
   )

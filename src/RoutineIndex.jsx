@@ -6,10 +6,12 @@ export function RoutineIndex(props) {
       
       {props.routines.map((routine) => (
         <div key={routine.id}>
-          <h2>{routine.id}</h2>
-          <p>Name: {routine.name}</p>
-  <p>Reps: {routine.reps}</p>
-          <button onClick={() => props.onShowRoutine(routine)}>more info</button>
+          <p>Workout: {routine.workout}</p>
+          <p>Exercise: {routine.name}</p>
+          <p>Reps: {routine.reps}</p>
+          <p></p>          
+          
+          <button onClick={() => props.onShowRoutine(routine)}>Update Routine</button>
           </div>
       ))}
       

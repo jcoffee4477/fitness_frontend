@@ -9,25 +9,24 @@ const handleSubmit = (event) => {
 return (
 <div>
   <h1>Routine information</h1>
-  <p>Workout: {props.routine.workout}</p>
-  <p>Name: {props.routine.exercise.name}</p>
-  <p>Description: {props.routine.exercise.description}</p>
- <></>
- <p>Image_url: {props.routine.exercise.image_url}</p>
- <p>Video: {props.routine.exercise.video_url}</p>
+  <p>Name: {props.routine.name}</p>
+  <p>Description: {props.routine.description}</p>
+ 
+ <p>Image_url: {props.routine.image_url}</p>
+ <p>Video: {props.routine.video_url}</p>
 
  <form onSubmit={handleSubmit}>
  <div>
 
-          Workout: <input defaultValue={props.routine.workout} name="workout" type="text" />
+          Name: <input defaultValue={props.routine.name} name="name" type="text" />
       </div>
        <div>
-        
-           Exercise: <input defaultValue={props.routine.exercise.name} name="name" type="text" />
+           Description: <input defaultValue={props.routine.description} name="description" type="text" />
          </div>
-         <div>
-           Reps: <input defaultValue={props.routine.reps} name="reps" type="text" />
-         </div>
+
+       
+         
+         
          <button type="submit">Update Routine</button>
          
        </form>

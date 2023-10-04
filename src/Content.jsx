@@ -7,8 +7,9 @@ import { LogoutLink} from "./LogoutLink"
 import { RoutinesNew } from "./RoutinesNew"
 import { Modal } from "./Modal"
 import { RoutinesShow } from "./RoutinesShow.jsx"
-import { ExercisesShow } from "./ExercisesShow.jsx"
+import { ExercisesNew } from "./ExercisesNew.jsx"
 import { ExercisesIndex } from "./ExercisesIndex.jsx"
+import { Routes, Route } from "react-router-dom"
 
 
 
@@ -49,6 +50,14 @@ const handleShowRoutine = (routine) => {
   setCurrentRoutine(routine)
 }
 
+const handleCreateExercise = (params, successCallback) => {
+  axios.post("http://localhost:3000/exercises.json", params).then((response) => {
+    setExercises([...exercises, response.data])
+    successCallback()
+    window.location.href = "/"
+  })
+}
+
 
 
 const handleClose = () => {
@@ -78,17 +87,30 @@ useEffect(handleExercisesIndex, [])
   return (
     <div>
       <h1>Welcome to React!</h1>
-      <Signup />
-      <Login />
-      <LogoutLink />
+      
+      <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="logout" element={<LogoutLink/>} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/exercises" element={<ExercisesIndex exercises={exercises}/>} />
+      <Route path="/exercises/new" element={<ExercisesNew onCreateExercise={handleCreateExercise} />} />
+      <Route path="/routines" element ={<RoutineIndex routines={routines} onShowRoutine={handleShowRoutine} />} />
+      
+      <Route path="/routines/new" element={<RoutinesNew onCreateRoutine={handleCreateRoutine}/>} />
+      </Routes>
+
+
+      
+      
+      
+      
       
 
-      <RoutinesNew onCreateRoutine={handleCreateRoutine}/>
-      <RoutineIndex routines={routines} onShowRoutine={handleShowRoutine} />
+
       <Modal show={isRoutinesShowVisible} onClose={handleClose}>
         <RoutinesShow routine={currentRoutine} onUpdateRoutine={handleUpdateRoutine}/>
       </Modal>
-      <ExercisesIndex exercises={exercises} />
+      
     </div>
   )
 }

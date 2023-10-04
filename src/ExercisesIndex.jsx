@@ -5,6 +5,8 @@ return (
   {props.exercises.map((exercise) => (
         <div key={exercise.id}>
           <h2>{exercise.name}</h2>
+          <p>Sets:{exercise.reps}</p>
+          <p>Reps:{exercise.sets}</p>
           
           
           

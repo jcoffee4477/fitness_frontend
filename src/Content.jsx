@@ -10,6 +10,8 @@ import { RoutinesShow } from "./RoutinesShow.jsx"
 import { ExercisesNew } from "./ExercisesNew.jsx"
 import { ExercisesIndex } from "./ExercisesIndex.jsx"
 import { Routes, Route } from "react-router-dom"
+import { ExerciseModal } from "./ExerciseModal"
+import { ExercisesShow } from "./ExercisesShow.jsx"
 
 
 
@@ -19,10 +21,33 @@ const [routines, setRoutines] = useState([]);
 const [isRoutinesShowVisible, setIsRoutinesShowVisible] = useState(false)
 const [currentRoutine, setCurrentRoutine] = useState({})
 const [exercises, setExercises] = useState([])
+const [isExercisesShowVisible, setIsExercisesShowVisible] = useState(false)
+const [currentExercise, setCurrentExercise] = useState({})
 
 const handleExercisesIndex = () => {
   axios.get("http://localhost:3000/exercises.json").then((response) => {
     setExercises(response.data)
+  })
+}
+
+const handleShowExercise = (exercise) => {
+  setIsExercisesShowVisible(true);
+  setCurrentExercise(exercise)
+}
+
+const handleUpdateExercise = (id, params, successCallback) => {
+  axios.patch(`http://localhost:3000/exercises/${id}.json`, params).then((response) => {
+    setExercises(
+      exercises.map((exercise) =>{
+        if(exercise.id === response.data.id) {
+          return response.data;
+        } else {
+          return exercise
+        }
+      })
+    )
+    successCallback()
+    handleClose()
   })
 }
 
@@ -62,6 +87,7 @@ const handleCreateExercise = (params, successCallback) => {
 
 const handleClose = () => {
   setIsRoutinesShowVisible(false)
+  setIsExercisesShowVisible(false)
 }
 
 const handleUpdateRoutine = (id, params, successCallback) => {
@@ -89,10 +115,10 @@ useEffect(handleExercisesIndex, [])
       <h1>Welcome to React!</h1>
       
       <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/Login" element={<Login />} />
       <Route path="logout" element={<LogoutLink/>} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/exercises" element={<ExercisesIndex exercises={exercises}/>} />
+      <Route path="/exercises" element={<ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise}/>} />
       <Route path="/exercises/new" element={<ExercisesNew onCreateExercise={handleCreateExercise} />} />
       <Route path="/routines" element ={<RoutineIndex routines={routines} onShowRoutine={handleShowRoutine} />} />
       
@@ -100,16 +126,14 @@ useEffect(handleExercisesIndex, [])
       </Routes>
 
 
-      
-      
-      
-      
-      
-
 
       <Modal show={isRoutinesShowVisible} onClose={handleClose}>
         <RoutinesShow routine={currentRoutine} onUpdateRoutine={handleUpdateRoutine}/>
       </Modal>
+
+      <ExerciseModal show={isExercisesShowVisible} onClose={handleClose}>
+        <ExercisesShow exercise={currentExercise} onUpdateExercise={handleUpdateExercise} />
+      </ExerciseModal>
       
     </div>
   )

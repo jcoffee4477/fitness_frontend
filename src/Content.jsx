@@ -118,8 +118,8 @@ useEffect(handleRoutineIndex, [])
 useEffect(handleExercisesIndex, [])
 
   return (
-    <div>
-      <h1>Welcome to React!</h1>
+    <div className="container">
+      
       
       <Routes>
       <Route path="/Login" element={<Login />} />
@@ -127,7 +127,7 @@ useEffect(handleExercisesIndex, [])
       <Route path="/signup" element={<Signup />} />
       <Route path="/exercises" element={<ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise}/>} />
       <Route path="/exercises/new" element={<ExercisesNew onCreateExercise={handleCreateExercise} />} />
-      <Route path="/routines" element ={<RoutineIndex routines={routines} onShowRoutine={handleShowRoutine} />} />
+      <Route path="/routines" element ={<RoutineIndex routines={routines} onShowRoutine={handleShowRoutine} onShowExercise={handleShowExercise} />} />
       
       <Route path="/routines/new" element={<RoutinesNew onCreateRoutine={handleCreateRoutine}/>} />
       </Routes>

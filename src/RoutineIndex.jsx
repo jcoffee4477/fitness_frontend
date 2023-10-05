@@ -1,15 +1,21 @@
 export function RoutineIndex(props) {
   console.log(props)
+
+  const redirectToExercisesNew = (routine) => {
+    console.log("hello")
+    window.location.href = "/exercises/new?routine_id=" + routine.id
+  }
+
   return (
     <div>
       <h1>All routines</h1>
       
       {props.routines.map((routine) => (
         <div key={routine.id}>
-          <p>Routine ID: {routine.id}</p>
+          <p>Routine: {routine.id}</p>
           <p>Name: {routine.name}</p>
           <p>Description: {routine.description}</p>
-          <img className="routine" src={routine.image_url} style ={{heigh:100, width:200}}/>
+          <img className="routine" src={routine.image_url} style ={{heigh:100, width:300}}/>
 
           
           {routine.exercises.map((exercise)=>(
@@ -23,6 +29,8 @@ export function RoutineIndex(props) {
                 
           
           <button onClick={() => props.onShowRoutine(routine)}>Update Routine</button>
+
+          <button onClick={() => redirectToExercisesNew(routine)}>Add Exercise</button>
           
           </div>
         

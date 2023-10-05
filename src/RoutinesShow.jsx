@@ -25,7 +25,7 @@ return (
  <div>
 
           Name: <input defaultValue={props.routine.name} name="name" type="text" />
-      </div>
+       </div>
        <div>
            Description: <input defaultValue={props.routine.description} name="description" type="text" />
          </div>
@@ -33,11 +33,6 @@ return (
           Image: <input defaultValue={props.routine.image_url} name="image_url" type="text"/>
          </div>
 
-
-
-       
-         
-         
          <button type="submit">Update Routine</button>
          
          

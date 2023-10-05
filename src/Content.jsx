@@ -107,6 +107,13 @@ const handleUpdateRoutine = (id, params, successCallback) => {
   })
 }
 
+const handleDestroyRoutine = (routine) => {
+  axios.delete(`http://localhost:3000/routines/${routine.id}.json`).then((response) => {
+    setRoutines(routines.filter((r) => r.id !== routine.id))
+    handleClose()
+  })
+}
+
 useEffect(handleRoutineIndex, [])
 useEffect(handleExercisesIndex, [])
 
@@ -128,7 +135,7 @@ useEffect(handleExercisesIndex, [])
 
 
       <Modal show={isRoutinesShowVisible} onClose={handleClose}>
-        <RoutinesShow routine={currentRoutine} onUpdateRoutine={handleUpdateRoutine}/>
+        <RoutinesShow routine={currentRoutine} onUpdateRoutine={handleUpdateRoutine} onDestroyRoutine={handleDestroyRoutine}/>
       </Modal>
 
       <ExerciseModal show={isExercisesShowVisible} onClose={handleClose}>

@@ -24,7 +24,7 @@ export function Header() {
   return (
     <header>
       <nav>
-         <Link to="/routines">Home</Link> | <Link to="/signup">Sign Up</Link> |  <LogoutLink></LogoutLink> |  <Link to="login">Login</Link> | <Link to="/routines/new">Create New Routine</Link> | <Link to="/exercises">View All Exercises</Link> | <Link to="/exercises/new">Create New Exercise</Link>
+         <Link to="/routines">My Routines</Link> | <Link to="/signup">Sign Up</Link> |  <LogoutLink></LogoutLink> |  <Link to="login">Login</Link> | <Link to="/routines/new">Create New Routine</Link> | <Link to="/exercises">View All Exercises</Link> | <Link to="/exercises/new">Create New Exercise</Link>
         {authenticationLinks}
       </nav>
     </header>

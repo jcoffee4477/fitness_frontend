@@ -13,7 +13,7 @@ export function RoutineIndex(props) {
           
           {routine.exercises.map((exercise)=>(
             <div key={exercise.id}>
-              <p>name: {exercise.name}</p>
+              <p>exercise: {exercise.name}</p>
               <p>reps: {exercise.reps}</p>
               <p>sets: {exercise.sets}</p>
               </div>
@@ -30,3 +30,6 @@ export function RoutineIndex(props) {
     </div>
   );
 }
+
+
+// MAKE ONLY USER BE ABLE TO SEE THEIR DATA - FIND A MORE EFFICIENT WAY TO ADD EXCERCISES TO SPECIFIC ROUTINE - START TO STYLE

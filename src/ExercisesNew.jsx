@@ -25,7 +25,7 @@ return (
     <div>
       User ID: <input name="user_id" type="text" />
     </div>
-    <button type="submit">Add Exercise to Routine</button>
+    <button type="submit">Create New Exercise</button>
   </form>
 </div>
 );

@@ -4,7 +4,13 @@ const handleSubmit = (event) => {
   event.preventDefault();
   const params = new FormData(event.target);
   props.onUpdateRoutine(props.routine.id, params, () => event.target.reset)
+  
 }
+
+const handleClick = () => {
+  props.onDestroyRoutine(props.routine)
+}
+
 
 return (
 <div>
@@ -24,12 +30,17 @@ return (
            Description: <input defaultValue={props.routine.description} name="description" type="text" />
          </div>
 
+         
+
        
          
          
          <button type="submit">Update Routine</button>
          
+         
        </form>
+       <button onClick={handleClick}>Remove Routine</button>
+       
 </div>
 );
 }

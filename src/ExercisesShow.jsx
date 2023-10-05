@@ -27,7 +27,7 @@ export function ExercisesShow(props) {
       <div>
         Routine ID: <input defaultValue={props.exercise.routine_id} name="routine_id" type="text"/>
       </div>
-      <button type="submit">Update Exercise</button>
+      <button type="submit">Add To Routine</button>
      </form>
     </div>
     

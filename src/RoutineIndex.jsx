@@ -9,13 +9,15 @@ export function RoutineIndex(props) {
           <p>Routine ID: {routine.id}</p>
           <p>Name: {routine.name}</p>
           <p>Description: {routine.description}</p>
+          <img className="routine" src={routine.image_url} style ={{heigh:100, width:200}}/>
 
           
           {routine.exercises.map((exercise)=>(
             <div key={exercise.id}>
-              <p>exercise: {exercise.name}</p>
-              <p>reps: {exercise.reps}</p>
-              <p>sets: {exercise.sets}</p>
+              <p>Exercise: {exercise.name}</p>
+              <p>Reps: {exercise.reps}</p>
+              <p>Sets: {exercise.sets}</p>
+              <p>How to: {exercise.description}</p>
               </div>
         ))}  
                 

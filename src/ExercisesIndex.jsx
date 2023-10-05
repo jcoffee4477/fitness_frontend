@@ -7,6 +7,7 @@ return (
           <h2>{exercise.name}</h2>
           <p>Sets:{exercise.reps}</p>
           <p>Reps:{exercise.sets}</p>
+          <p>Description:{exercise.description}</p>
           <button onClick={() => props.onShowExercise(exercise)} >Add To Routine</button>
           
           

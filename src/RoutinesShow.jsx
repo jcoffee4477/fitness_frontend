@@ -29,8 +29,11 @@ return (
        <div>
            Description: <input defaultValue={props.routine.description} name="description" type="text" />
          </div>
+         <div>
+          Image: <input defaultValue={props.routine.image_url} name="image_url" type="text"/>
+         </div>
 
-         
+
 
        
          

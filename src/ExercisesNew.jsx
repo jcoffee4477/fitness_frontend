@@ -25,6 +25,9 @@ return (
     <div>
       User ID: <input name="user_id" type="text" />
     </div>
+    <div>
+      Description: <input name="description" type ="text" />
+    </div>
     <button type="submit">Create New Exercise</button>
   </form>
 </div>

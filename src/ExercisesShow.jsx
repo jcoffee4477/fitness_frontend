@@ -9,6 +9,9 @@ export function ExercisesShow(props) {
   const handleClick = () => {
     props.onDestroyExercise(props.exercise)
   }
+  const handleButton = () => {
+    props.onRemoveRoutineIdFromExercise(props.exercise.routine_id)
+  }
 
   return (
     <div>
@@ -38,6 +41,7 @@ export function ExercisesShow(props) {
       <button type="submit">Add To Routine</button>
      </form>
      <button onClick={handleClick}>Destroy Exercise</button>
+     <button onClick={handleButton}>Remove exercise from routine</button>
     </div>
     
   );

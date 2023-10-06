@@ -24,6 +24,14 @@ const [exercises, setExercises] = useState([])
 const [isExercisesShowVisible, setIsExercisesShowVisible] = useState(false)
 const [currentExercise, setCurrentExercise] = useState({})
 
+const handleRemoveRoutineIdFromExercise = (exerciseId) => {
+  axios.delete(`http://localhost:3000/exercisesdelete/${exerciseId}.json`).then((response) => {
+    setExercises(exercises.filter((e) => e.id !== exerciseId))
+    handleClose()
+    window.location.href = "/routines"
+  })
+}
+
 const handleExercisesIndex = () => {
   axios.get("http://localhost:3000/exercises.json").then((response) => {
     setExercises(response.data)
@@ -134,7 +142,7 @@ useEffect(handleExercisesIndex, [])
       <Route path="/signup" element={<Signup />} />
       <Route path="/exercises" element={<ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise}/>} />
       <Route path="/exercises/new" element={<ExercisesNew onCreateExercise={handleCreateExercise} />} />
-      <Route path="/routines" element ={<RoutineIndex routines={routines} onShowRoutine={handleShowRoutine} onShowExercise={handleShowExercise} />} />
+      <Route path="/routines" element ={<RoutineIndex routines={routines} onShowRoutine={handleShowRoutine} onShowExercise={handleShowExercise} onRemoveRoutineIdFromExercise={handleRemoveRoutineIdFromExercise} />} />
       
       <Route path="/routines/new" element={<RoutinesNew onCreateRoutine={handleCreateRoutine}/>} />
       </Routes>
@@ -142,13 +150,15 @@ useEffect(handleExercisesIndex, [])
 
 
       <Modal show={isRoutinesShowVisible} onClose={handleClose}>
-        <RoutinesShow routine={currentRoutine} onUpdateRoutine={handleUpdateRoutine} onDestroyRoutine={handleDestroyRoutine}/>
+        <RoutinesShow routine={currentRoutine} onUpdateRoutine={handleUpdateRoutine} onDestroyRoutine={handleDestroyRoutine} />
       </Modal>
 
       <ExerciseModal show={isExercisesShowVisible} onClose={handleClose}>
-        <ExercisesShow exercise={currentExercise} onUpdateExercise={handleUpdateExercise} onDestroyExercise={handleDestroyExercise} />
+        <ExercisesShow exercise={currentExercise} onUpdateExercise={handleUpdateExercise} onDestroyExercise={handleDestroyExercise}  /> 
       </ExerciseModal>
       
     </div>
   )
 }
+
+//onRemoveRoutineId={handleRemoveRoutineId

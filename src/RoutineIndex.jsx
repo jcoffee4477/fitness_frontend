@@ -6,9 +6,14 @@ export function RoutineIndex(props) {
     window.location.href = "/exercises/new?routine_id=" + routine.id
   }
 
+  const redirectToRoutinesNew =(routine) => {
+    window.location.href= "/routines/new?"
+  }
+
   return (
     <div>
       <h1>All routines</h1>
+      
       
       {props.routines.map((routine) => (
         <div key={routine.id}>
@@ -32,9 +37,11 @@ export function RoutineIndex(props) {
 
           <button onClick={() => redirectToExercisesNew(routine)}>Add Exercise</button>
           
+          <button onClick={() => redirectToRoutinesNew(routine)} >Add New Routine</button>
           </div>
         
       ))}
+      
       
       
     </div>
@@ -42,4 +49,3 @@ export function RoutineIndex(props) {
 }
 
 
-// MAKE ONLY USER BE ABLE TO SEE THEIR DATA - FIND A MORE EFFICIENT WAY TO ADD EXCERCISES TO SPECIFIC ROUTINE - START TO STYLE

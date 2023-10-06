@@ -6,6 +6,10 @@ const handleSubmit = (event) => {
   props.onCreateRoutine(params, () => event.target.reset())
 }
 
+const redirectToRoutines = (routine) => {
+  window.location.href= "/routines"
+}
+
 return (
 <div>
   <h1>New Routine</h1>
@@ -16,8 +20,11 @@ return (
     <div>
       Description: <input name="description" type="text"/>
     </div>
+    <div>
+      Image: <input name="image_url" type="text"/>
+    </div>
     
-    <button type="submit">Create Routine</button>
+    <button type="submit" onClick={redirectToRoutines}>Create Routine</button>
   </form>
 </div>
 );

@@ -6,6 +6,10 @@ export function ExercisesShow(props) {
     props.onUpdateExercise(props.exercise.id, params, () => event.target.reset())
   }
 
+  const handleClick = () => {
+    props.onDestroyExercise(props.exercise)
+  }
+
   return (
     <div>
       <h1>Exercises</h1>
@@ -13,6 +17,7 @@ export function ExercisesShow(props) {
      <p>Reps: {props.exercise.reps}</p>
      <p>Sets: {props.exercise.sets}</p>
      <p>Routine ID: {props.exercise.routine_id}</p>
+     <p>Description: {props.exercise.description}</p>
 
      <form onSubmit={handleSubmit}>
       <div>
@@ -27,8 +32,12 @@ export function ExercisesShow(props) {
       <div>
         Routine ID: <input defaultValue={props.exercise.routine_id} name="routine_id" type="text"/>
       </div>
+      <div>
+        Description: <input defaultValue={props.exercise.description} name="description" type="text"/>
+      </div>
       <button type="submit">Add To Routine</button>
      </form>
+     <button onClick={handleClick}>Destroy Exercise</button>
     </div>
     
   );

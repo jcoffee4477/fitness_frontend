@@ -26,18 +26,20 @@ export function RoutineIndex(props) {
           {routine.exercises.map((exercise)=>(
             <div key={exercise.id}>
               <p>Exercise: {exercise.name}</p>
+             <p>Exercise id: {exercise.id}</p>
               <p>Reps: {exercise.reps}</p>
               <p>Sets: {exercise.sets}</p>
               <p>How to: {exercise.description}</p>
               </div>
         ))}  
                 
-          
-          <button onClick={() => props.onShowRoutine(routine)}>Update Routine</button>
+          <p>
+            <button onClick={() => props.onShowRoutine(routine)}>Update Routine</button>
 
-          <button onClick={() => redirectToExercisesNew(routine)}>Add Exercise</button>
+            <button onClick={() => redirectToExercisesNew(routine)}>Add Exercise</button>
           
-          <button onClick={() => redirectToRoutinesNew(routine)} >Add New Routine</button>
+            <button onClick={() => redirectToRoutinesNew(routine)} >Add New Routine</button>
+            </p>
           </div>
         
       ))}

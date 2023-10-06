@@ -51,6 +51,13 @@ const handleUpdateExercise = (id, params, successCallback) => {
   })
 }
 
+const handleDestroyExercise = (exercise) => {
+  axios.delete(`http://localhost:3000/exercises/${exercise.id}.json`).then((response) => {
+    setExercises(exercise.filter((e) => e.id != exercise.id))
+    handleClose()
+  })
+}
+
 
 
 const handleRoutineIndex = () => {
@@ -139,7 +146,7 @@ useEffect(handleExercisesIndex, [])
       </Modal>
 
       <ExerciseModal show={isExercisesShowVisible} onClose={handleClose}>
-        <ExercisesShow exercise={currentExercise} onUpdateExercise={handleUpdateExercise} />
+        <ExercisesShow exercise={currentExercise} onUpdateExercise={handleUpdateExercise} onDestroyExercise={handleDestroyExercise} />
       </ExerciseModal>
       
     </div>

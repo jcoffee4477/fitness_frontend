@@ -9,8 +9,18 @@ export function Header() {
 
   let authenticationLinks;
   if (localStorage.jwt === undefined) {
-   authenticationLinks = ( <Link to="login">Login</Link>)
-  } 
+   authenticationLinks = ( 
+    <>
+    <Link to="login">Login</Link> | <Link to="/signup">Sign Up</Link> 
+    </> )
+  } else {
+    authenticationLinks = ( 
+      <>
+     <Link to="/routines">My Routines</Link>  | <Link to="/routines/new">Create New Routine</Link> | <Link to="/exercises">View All Exercises</Link> | <Link to="/exercises/new">Create New Exercise</Link> | <LogoutLink></LogoutLink> |
+    </>
+    )
+  }
+  
 
   const [user, setUser] = useState({});
   /*const getUserData = () => {
@@ -24,8 +34,8 @@ export function Header() {
   return (
     <header>
       <nav>
-         <Link to="/routines">My Routines</Link> | <Link to="/signup">Sign Up</Link> |  <LogoutLink></LogoutLink> |  <Link to="login">Login</Link> | <Link to="/routines/new">Create New Routine</Link> | <Link to="/exercises">View All Exercises</Link> | <Link to="/exercises/new">Create New Exercise</Link>
-        {authenticationLinks}
+         {authenticationLinks}
+        
       </nav>
     </header>
   )

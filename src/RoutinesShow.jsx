@@ -35,10 +35,9 @@ return (
          <div>
           Image: <input defaultValue={props.routine.image_url} name="image_url" type="text"/>
          </div>
-
          <button type="submit">Update Routine</button>
 
-         
+
          
          
        </form>

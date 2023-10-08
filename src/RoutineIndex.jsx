@@ -14,6 +14,11 @@ export function RoutineIndex(props) {
     props.onRemoveRoutineIdFromExercise(exerciseId)
   }
 
+  const redirectToExercises = (routine) => {
+    window.location.href = "/exercises"
+  }
+  
+
   return (
     <div>
       <h1>All routines</h1>
@@ -21,7 +26,7 @@ export function RoutineIndex(props) {
       
       {props.routines.map((routine) => (
         <div key={routine.id}>
-          <p>Routine: {routine.id}</p>
+         <h4> Routine: {routine.id}</h4>
           <p>Name: {routine.name}</p>
           <p>Description: {routine.description}</p>
           <img className="routine" src={routine.image_url} style ={{height:300, width:300}}/>
@@ -29,25 +34,26 @@ export function RoutineIndex(props) {
           
           {routine.exercises.map((exercise)=>(
             <div key={exercise.id}>
-              <button onClick={() => handleButton(exercise.id)}>Remove exercise from routine</button>  
+                
               <p>Exercise: {exercise.name}</p>
-             <p>Exercise id: {exercise.id}</p>
+             
               <p>Reps: {exercise.reps}</p>
               <p>Sets: {exercise.sets}</p>
               <p>How to: {exercise.description}</p>
+              <button onClick={() => handleButton(exercise.id)}>Remove Exercise Rrom Routine</button> 
+              <br />
+              <br />
               </div>
+              
         ))}  
                 
           <p>
-            <button onClick={() => props.onShowRoutine(routine)}>Update Routine</button>
-
-            <button onClick={() => redirectToExercisesNew(routine)}>Add Exercise</button>
-
             
-       
-            
-          
-            <button onClick={() => redirectToRoutinesNew(routine)} >Add New Routine</button>
+
+            <button onClick={() => redirectToExercisesNew(routine)}>Add Exercises To Routine</button>
+            {" "}
+            <button onClick={() => redirectToExercises(routine)}>Update Routine Exercises</button>
+            <hr />
             </p>
           </div>
         

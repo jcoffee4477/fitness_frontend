@@ -34,7 +34,9 @@ export function Header() {
   return (
     <header>
       <nav>
+        <center>
          {authenticationLinks}
+         </center>
         
       </nav>
     </header>

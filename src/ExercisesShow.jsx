@@ -39,9 +39,10 @@ export function ExercisesShow(props) {
         Description: <input defaultValue={props.exercise.description} name="description" type="text"/>
       </div>
       <button type="submit">Add To Routine</button>
+      <button type="submit">Update Exercise</button>
+      
      </form>
      <button onClick={handleClick}>Destroy Exercise</button>
-     <button onClick={handleButton}>Remove exercise from routine</button>
     </div>
     
   );

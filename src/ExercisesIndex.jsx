@@ -18,10 +18,11 @@ return (
   {props.exercises.filter(exercise => exercise.name.toLowerCase().includes(searchFilter)).map((exercise) => (
         <div key={exercise.id}>
           <h2>{exercise.name}</h2>
-          <p>Sets:{exercise.reps}</p>
-          <p>Reps:{exercise.sets}</p>
+          <p>Exercise ID: {exercise.id}</p>
           <p>Description:{exercise.description}</p>
-          <button onClick={() => props.onShowExercise(exercise)} >Add To Routine</button>
+          <button onClick={() => props.onShowExercise(exercise)} >Add To Routine/Update Exercise</button>
+          
+          
           
           
           

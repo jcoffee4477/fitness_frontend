@@ -12,6 +12,11 @@ export function ExercisesShow(props) {
   const handleButton = () => {
     props.onRemoveRoutineIdFromExercise(props.exercise.routine_id)
   }
+  const redirectToRoutines = () => {
+    window.location.href = "/routines"
+  }
+
+  
 
   return (
     <div>
@@ -21,6 +26,9 @@ export function ExercisesShow(props) {
      <p>Sets: {props.exercise.sets}</p>
      <p>Routine ID: {props.exercise.routine_id}</p>
      <p>Description: {props.exercise.description}</p>
+     <p>Resistance: {props.exercise.resistance}</p>
+     <p>Image: {props.exercise.image_url}</p>
+     <p>User: {props.exercise.user_id}</p>
 
      <form onSubmit={handleSubmit}>
       <div>
@@ -38,7 +46,10 @@ export function ExercisesShow(props) {
       <div>
         Description: <input defaultValue={props.exercise.description} name="description" type="text"/>
       </div>
-      <button type="submit">Add To Routine</button>
+      <p>Resistance: <input defaultValue={props.exercise.resistance} name="resistance" type="text"/></p>
+      <p>Image: <input defaultValue={props.exercise.image_url} name="image_url" type="text"/></p>
+      <p>User: <input defaultValue={props.exercise.user_id} name="user_id" type="text"/></p>
+      <button onClick={redirectToRoutines} type="submit">Add To Routine</button>
       <button type="submit">Update Exercise</button>
       
      </form>

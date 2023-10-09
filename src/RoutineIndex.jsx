@@ -6,7 +6,7 @@ export function RoutineIndex(props) {
     window.location.href = "/exercises/new?routine_id=" + routine.id
   }
 
-  const redirectToRoutinesNew =(routine) => {
+  const redirectToRoutines =(routine) => {
     window.location.href= "/routines/new?"
   }
 
@@ -34,12 +34,11 @@ export function RoutineIndex(props) {
           
           {routine.exercises.map((exercise)=>(
             <div key={exercise.id}>
-                
               <p>Exercise: {exercise.name}</p>
-             
               <p>Reps: {exercise.reps}</p>
               <p>Sets: {exercise.sets}</p>
               <p>How to: {exercise.description}</p>
+              <p> Details:{exercise.resistance}</p>
               <button onClick={() => handleButton(exercise.id)}>Remove Exercise Rrom Routine</button> 
               <br />
               <br />
@@ -50,7 +49,7 @@ export function RoutineIndex(props) {
           <p>
             
 
-            <button onClick={() => redirectToExercisesNew(routine)}>Add Exercises To Routine</button>
+            <button onClick={() => redirectToExercisesNew(routine)}>Create New Exercise</button>
             {" "}
             <button onClick={() => redirectToExercises(routine)}>Update Routine Exercises</button>
             <hr />
@@ -65,4 +64,6 @@ export function RoutineIndex(props) {
   );
 }
 
+
+// ADD PICTURES
 

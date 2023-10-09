@@ -10,7 +10,7 @@ console.log(searchParams.get("routine_id"))
          props.onCreateExercise(params, () => event.target.reset());
        };
 
-       const redirectToExecises = (exercise) => {
+       const redirectToExercises = (exercise) => {
         window.location.href= "/exercises"
       }
 
@@ -36,7 +36,10 @@ return (
     <div>
       Description: <input name="description" type ="text" />
     </div>
-    <button type="submit" onClick={redirectToExecises}>Create New Exercise</button>
+    <div>
+      Resistance: <input name="resistance" type="text"/>
+    </div>
+    <button type="submit" onClick={redirectToExercises}>Create New Exercise</button>
   </form>
 </div>
 );

@@ -4,6 +4,8 @@ export function ExercisesIndex(props) {
 
 const [searchFilter, setSearchFilter] = useState("")
 
+
+
 return (
 <div>
   <p>Search Exercise: <input type="text" value={searchFilter} onChange={event => setSearchFilter(event.target.value)} list="name"/></p>
@@ -20,7 +22,9 @@ return (
           <h2>{exercise.name}</h2>
           <p>Exercise ID: {exercise.id}</p>
           <p>Description:{exercise.description}</p>
+          <img className="image_url" src={exercise.image_url} style ={{height:200, width:200}}/>
           <button onClick={() => props.onShowExercise(exercise)} >Add To Routine/Update Exercise</button>
+          <hr />
           
           
           

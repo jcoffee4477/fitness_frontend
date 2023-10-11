@@ -23,7 +23,6 @@ return (
     <div>
       Image: <input name="image_url" type="text"/>
     </div>
-    
     <button type="submit" onClick={redirectToRoutines}>Create Routine</button>
   </form>
 </div>

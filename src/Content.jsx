@@ -66,8 +66,6 @@ const handleDestroyExercise = (exercise) => {
   })
 }
 
-
-
 const handleRoutineIndex = () => {
   console.log("handle")
   axios.get("http://localhost:3000/routines.json").then((response) => {
@@ -76,8 +74,6 @@ const handleRoutineIndex = () => {
   })
 }
 
-
-
 const handleCreateRoutine = (params, successCallbackl) => {
   console.log("handle", params);
   axios.post("http://localhost:3000/routines.json", params).then((response) => {
@@ -85,6 +81,7 @@ const handleCreateRoutine = (params, successCallbackl) => {
     successCallbackl();
   })
 }
+
 const handleShowRoutine = (routine) => {
   setIsRoutinesShowVisible(true)
   setCurrentRoutine(routine)
@@ -97,8 +94,6 @@ const handleCreateExercise = (params, successCallback) => {
     window.location.href = "/"
   })
 }
-
-
 
 const handleClose = () => {
   setIsRoutinesShowVisible(false)
@@ -135,18 +130,15 @@ useEffect(handleExercisesIndex, [])
   return (
     <div className="container">
       
-      
       <Routes>
-      <Route path="/Login" element={<Login />} />
-      <Route path="logout" element={<LogoutLink/>} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/exercises" element={<ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise}/>} />
-      <Route path="/exercises/new" element={<ExercisesNew onCreateExercise={handleCreateExercise} />} />
-      <Route path="/routines" element ={<RoutineIndex routines={routines} onShowRoutine={handleShowRoutine} onShowExercise={handleShowExercise} onRemoveRoutineIdFromExercise={handleRemoveRoutineIdFromExercise} />} />
-      
-      <Route path="/routines/new" element={<RoutinesNew onCreateRoutine={handleCreateRoutine}/>} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="logout" element={<LogoutLink/>} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/exercises" element={<ExercisesIndex exercises={exercises} onShowExercise={handleShowExercise}/>} />
+        <Route path="/exercises/new" element={<ExercisesNew onCreateExercise={handleCreateExercise} />} />
+        <Route path="/routines" element ={<RoutineIndex routines={routines} onShowRoutine={handleShowRoutine} onShowExercise={handleShowExercise} onRemoveRoutineIdFromExercise={handleRemoveRoutineIdFromExercise} />} />
+        <Route path="/routines/new" element={<RoutinesNew onCreateRoutine={handleCreateRoutine}/>} />
       </Routes>
-
 
 
       <Modal show={isRoutinesShowVisible} onClose={handleClose}>
@@ -161,4 +153,3 @@ useEffect(handleExercisesIndex, [])
   )
 }
 
-//onRemoveRoutineId={handleRemoveRoutineId

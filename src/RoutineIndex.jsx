@@ -3,11 +3,7 @@ export function RoutineIndex(props) {
 
   const redirectToExercisesNew = (routine) => {
     console.log("hello")
-    window.location.href = "/exercises/new?routine_id=" + routine.id
-  }
-
-  const redirectToRoutines =(routine) => {
-    window.location.href= "/routines/new?"
+    window.location.href = "/exercises/new?routine_id=" + routine.id 
   }
 
   const handleButton = (exerciseId) => {
@@ -15,14 +11,12 @@ export function RoutineIndex(props) {
   }
 
   const redirectToExercises = (routine) => {
-    window.location.href = "/exercises"
+    window.location.href = "/exercises?routine_id=" + routine.id 
   }
   
-
   return (
     <div>
       <h1>All routines</h1>
-      
       
       {props.routines.map((routine) => (
         <div key={routine.id}>
@@ -32,38 +26,30 @@ export function RoutineIndex(props) {
           <img className="routine" src={routine.image_url} style ={{height:300, width:300}}/>
 
           
-          {routine.exercises.map((exercise)=>(
-            <div key={exercise.id}>
-              <p>Exercise: {exercise.name}</p>
-              <p>Reps: {exercise.reps}</p>
-              <p>Sets: {exercise.sets}</p>
-              <p>How to: {exercise.description}</p>
-              <p> Details:{exercise.resistance}</p>
-              <button onClick={() => handleButton(exercise.id)}>Remove Exercise Rrom Routine</button> 
-              <br />
-              <br />
-              </div>
-              
-        ))}  
-                
-          <p>
-            
-
-            <button onClick={() => redirectToExercisesNew(routine)}>Create New Exercise</button>
-            {" "}
-            <button onClick={() => redirectToExercises(routine)}>Update Routine Exercises</button>
-            <hr />
-            </p>
-          </div>
-        
+      {routine.exercises.map((exercise)=>(
+        <div key={exercise.id}>
+          <p>Exercise: {exercise.name}</p>
+          <p>Reps: {exercise.reps}</p>
+          <p>Sets: {exercise.sets}</p>
+          <p>How to: {exercise.description}</p>
+          <p> Details:{exercise.resistance}</p>
+          <button onClick={() => handleButton(exercise.id)}>Remove Exercise Rrom Routine</button> 
+          <br />
+          <br />
+        </div>     
+        ))}       
+        <p>
+          <button onClick={() => redirectToExercisesNew(routine)}>Create New Exercise</button>
+          {" "}
+          <button onClick={() => redirectToExercises(routine)}>Update Routine Exercises</button>
+          <hr />
+          </p>
+        </div>
       ))}
-      
-      
-      
     </div>
   );
 }
 
 
-// ADD PICTURES
+
 

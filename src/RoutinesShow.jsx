@@ -24,25 +24,20 @@ return (
  <p>Image_url: {props.routine.image_url}</p>
  <p>Video: {props.routine.video_url}</p>
 
- <form onSubmit={handleSubmit}>
- <div>
+  <form onSubmit={handleSubmit}>
+  <div>
+    Name: <input defaultValue={props.routine.name} name="name" type="text" />
+  </div>
+  <div>
+     Description: <input defaultValue={props.routine.description} name="description" type="text" />
+  </div>
+  <div>
+    Image: <input defaultValue={props.routine.image_url} name="image_url" type="text"/>
+  </div>
+   <button type="submit">Update Routine</button>
 
-          Name: <input defaultValue={props.routine.name} name="name" type="text" />
-       </div>
-       <div>
-           Description: <input defaultValue={props.routine.description} name="description" type="text" />
-         </div>
-         <div>
-          Image: <input defaultValue={props.routine.image_url} name="image_url" type="text"/>
-         </div>
-         <button type="submit">Update Routine</button>
-
-
-         
-         
-       </form>
-       <button onClick={handleClick}>Remove Routine</button>
-       
+  </form>
+    <button onClick={handleClick}>Remove Routine</button>
 </div>
 );
 }

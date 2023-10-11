@@ -17,7 +17,7 @@ console.log(searchParams.get("routine_id"))
 return (
 <div>
   <h1>New Exercise</h1>
-  <form onSubmit={handleSubmit}>
+   <form onSubmit={handleSubmit}>
     <div>
       Name: <input name="name" type="text" />
     </div>
@@ -40,7 +40,7 @@ return (
       Resistance: <input name="resistance" type="text"/>
     </div>
     <button type="submit" onClick={redirectToExercises}>Create New Exercise</button>
-  </form>
+   </form>
 </div>
 );
 }
